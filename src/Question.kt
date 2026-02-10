@@ -45,12 +45,11 @@ interface ProgressPrintable {
 class Quiz : ProgressPrintable {
     override val progressText: String
         get() = "${answered} of ${total} answered"
-
-    fun Quiz.StudentProgress.printProgressBar() {
-        repeat(times = Quiz.answered) {print("▒")}
-        repeat(times = Quiz.total - Quiz.answered) {print("▒")}
+    override fun printProgressBar() {
+        repeat(times=Quiz.answered) {print("#")}
+        repeat(times=Quiz.total - Quiz.answered) {print("$")}
         println()
-        println(Quiz.progressText)
+        println(progressText)
     }
     val question1 = Question<String>(
         questionText = "Речка спятила с ума - По домам пошла сама. ___",
@@ -73,6 +72,28 @@ class Quiz : ProgressPrintable {
     }
     fun printQuiz() {
         println(question.questionText)
+    }
+    fun printQuiz() {
+        question1.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+
+        question2.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+
+        question3.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
     }
 }
 
