@@ -29,5 +29,5 @@ fun main() {
     solarSystem.remove(key = "Pluto")
     println(solarSystem.size)
     solarSystem["Jupiter"] = 78
-    println(solarSystem["Jupiter"])//l
+    println(solarSystem["Jupiter"])//ll;
 }
