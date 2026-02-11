@@ -1,3 +1,5 @@
+import kotlin.system.exitProcess
+
 class Cookie(
     val name: String,
     val softBaked: Boolean,
@@ -49,10 +51,13 @@ val cookies = listOf(
     )
 )
 fun main() {
-    val fullMenu = cookies.map {"${it.name} - $${it.price}"
+    val softBaked = cookies.filter {
+        it.softBaked
     }
-    println("Полное меню:")
-    fullMenu.forEach {
-        println(it)
+    println("Мягкое печенье:")
+    softBakedMenu.forEach {
+        println("${it.name} - $${it.price}")
     }
 }
+
+
